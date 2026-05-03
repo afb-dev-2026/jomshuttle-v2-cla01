@@ -218,7 +218,8 @@ export function buildHero() {
         <div class="hero-visual">
           <div class="hero-van-card" style="width:100%;max-width:480px;position:relative">
             <img
-              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&q=80"
+              /*src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=900&q=80"*/
+              src="assets/toyota_klia_compress.jpg" alt="Toyota Hiace Airport Transfer"
               alt="JomShuttle Van"
               style="width:100%;height:340px;object-fit:cover"
             >
