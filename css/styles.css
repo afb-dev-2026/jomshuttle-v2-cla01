@@ -7,16 +7,40 @@
 
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
+
   /* Brand */
-  --brand-blue: #1a73e8;
+  --brand-blue: #2563eb;        /* refined accent */
   --brand-orange: #f5820d;
-  --brand-gradient: linear-gradient(135deg, #1a73e8 0%, #8b3cf7 50%, #f5820d 100%);
-  --brand-gradient-soft: linear-gradient(135deg, #1a73e8 0%, #f5820d 100%);
+  --brand-gradient: linear-gradient(135deg, #2563eb 0%, #8b3cf7 50%, #f5820d 100%);
+  --brand-gradient-soft: linear-gradient(135deg, #2563eb 0%, #f5820d 100%);
   --whatsapp: #25d366;
   --whatsapp-dark: #128c7e;
 
   /* Light Mode */
-  --bg-primary: #ffffff;
+  --bg-primary: #f9fafb;        /* softer background */
+  --bg-secondary: #ffffff;      /* clean cards/nav */
+  --bg-card: #ffffff;
+  --bg-glass: rgba(255,255,255,0.85);
+  --text-primary: #1f2937;      /* darker text */
+  --text-secondary: #4b5563;
+  --text-muted: #94a3b8;
+  --border: #e5e7eb;
+  --tag-bg: #e0f2fe;
+  --tag-color: #2563eb;
+  --price-bg: #fff7ed;
+  --price-color: #c2410c;
+
+
+  /* Brand */
+  /*--brand-blue: #1a73e8;
+  --brand-orange: #f5820d;
+  --brand-gradient: linear-gradient(135deg, #1a73e8 0%, #8b3cf7 50%, #f5820d 100%);
+  --brand-gradient-soft: linear-gradient(135deg, #1a73e8 0%, #f5820d 100%);
+  --whatsapp: #25d366;
+  --whatsapp-dark: #128c7e;*/
+
+  /* Light Mode */
+  /*--bg-primary: #ffffff;
   --bg-secondary: #f0f4ff;
   --bg-card: #ffffff;
   --bg-glass: rgba(255,255,255,0.85);
@@ -34,7 +58,7 @@
   --tag-bg: #eff6ff;
   --tag-color: #1a73e8;
   --price-bg: #fff7ed;
-  --price-color: #c2410c;
+  --price-color: #c2410c;*/
 
   /* Typography */
   --font-display: 'Sora', sans-serif;
