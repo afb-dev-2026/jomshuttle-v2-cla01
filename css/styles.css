@@ -777,6 +777,9 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 .toast-success { border-left: 4px solid #22c55e; }
 .toast-error { border-left: 4px solid #ef4444; }
 
+.toast:empty {
+  display: none;
+}
 /* ── Loading spinner ───────────────────────────────────────── */
 .spinner {
   width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3);
