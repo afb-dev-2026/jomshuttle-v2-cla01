@@ -249,13 +249,27 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
 .nav-actions { display: flex; align-items: center; gap: 0.5rem; }
 
 /* Dark mode toggle */
+/* Dark mode toggle */
 .theme-toggle {
-  width: 40px; height: 40px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--bg-secondary); border: 1px solid var(--border);
-  font-size: 1.1rem; transition: var(--transition); cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;   /* smaller icon size */
+  transition: var(--transition);
+  cursor: pointer;
 }
-.theme-toggle:hover { background: var(--tag-bg); border-color: var(--brand-blue); transform: rotate(20deg); }
+
+.theme-toggle:hover {
+  background: var(--tag-bg);
+  border-color: var(--brand-blue);
+  transform: rotate(20deg);
+}
+
 
 /* Mobile menu */
 .nav-hamburger {
