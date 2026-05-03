@@ -224,7 +224,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
 .nav-logo {
   display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
 }
-.nav-logo img { height: 40px; width: auto; transition: var(--transition); }
+.nav-logo img { height: 40px; width: auto; transition: var(--transition); background-color: var(--background); }
 .nav-logo:hover img { transform: scale(1.05); }
 .nav-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; }
 .logo-jom { color: var(--brand-blue); }
