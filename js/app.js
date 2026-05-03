@@ -68,8 +68,8 @@ export function buildNavbar() {
 
   nav.innerHTML = `
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <img class="nav-logo-img" src="${COMPANY.logoLight}" alt="${COMPANY.name}" onerror="this.style.display='none'">
+      /*<a href="#" class="nav-logo">
+        <img class="nav-logo-img" src="${COMPANY.logoLight}" alt="${COMPANY.name}" onerror="this.style.display='none'">*/
         <span class="nav-logo-text">
           <span class="logo-jom">Jom</span><span class="logo-shuttle">Shuttle</span><span class="logo-com">.com</span>
         </span>
