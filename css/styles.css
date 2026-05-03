@@ -405,6 +405,10 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
 .float-icon { font-size: 1.1rem; }
 .float-text { font-size: 0.78rem; font-weight: 600; color: var(--text-primary); }
 
+.hero-van-badge,
+.hero-float {
+  display: none !important;
+}
 /* ── Service Tabs ──────────────────────────────────────────── */
 #services { background: var(--bg-secondary); }
 .service-tabs {
