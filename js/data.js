@@ -39,9 +39,9 @@ export const COMPANY = {
  // logoDark: "assets/logo-dark.png",   // black-bg logo
   // EmailJS configuration — replace with your actual IDs from emailjs.com
   emailJS: {
-    publicKey: "YOUR_EMAILJS_PUBLIC_KEY",      // From EmailJS dashboard → Account
-    serviceId: "YOUR_EMAILJS_SERVICE_ID",      // From EmailJS dashboard → Email Services
-    templateId: "YOUR_EMAILJS_TEMPLATE_ID",   // From EmailJS dashboard → Email Templates
+    publicKey: "XWpZk_d0xRg1WMmhE",      // From EmailJS dashboard → Account
+    serviceId: "service_ae6ncn1",      // From EmailJS dashboard → Email Services
+    templateId: "template_7li5hls",   // From EmailJS dashboard → Email Templates
   }
 };
 
