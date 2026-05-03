@@ -7,7 +7,7 @@
 
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
-   :root {
+
   /* Brand */
   --brand-blue: #2563eb;        /* refined accent */
   --brand-orange: #f5820d;
@@ -29,7 +29,7 @@
   --tag-color: #2563eb;
   --price-bg: #fff7ed;
   --price-color: #c2410c;
-}
+
 
   /* Brand */
   /*--brand-blue: #1a73e8;
