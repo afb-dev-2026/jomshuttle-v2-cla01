@@ -341,7 +341,7 @@ export const TOUR_PACKAGES = [
     duration: "4D2N",
     price: "RM580/pax",
     priceNote: "Sharing group • Transport & Hotel",
-    image: "https://images.unsplash.com/photo-1753146753351-3dc28103f64d?q=80",
+    image: "https://images.unsplash.com/photo-1683119100517-3e626369cbd2?q=80",
     emoji: "🇹🇭",
     whatsappRef: "HatyaiSongkla",
     badge: "POPULAR",
