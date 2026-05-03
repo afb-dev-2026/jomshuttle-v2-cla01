@@ -26,8 +26,8 @@
 // ── Company Info ──────────────────────────────────────────────
 export const COMPANY = {
   name: "JomShuttle",
-  logoLight: "assets/jomshuttle_logo_light.webp", // white-bg logo
-  logoDark: "assets/jomshuttle_logo_dark.webp", // black-bg logo
+  logoLight: "assets/jomshuttle_logo_light.png", // white-bg logo
+  logoDark: "assets/jomshuttle_logo_dark.png", // black-bg logo
   tagline: "Book now and let us drive you there!",
   phone: "+60136788869",
   whatsappBase: "https://wasap.my/60136788869/",
