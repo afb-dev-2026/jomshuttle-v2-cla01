@@ -1088,13 +1088,25 @@ export function showToast(message, type = 'success') {
   const toastIcon = document.getElementById('toastIcon');
   if (!toast) return;
 
+  // Guard against empty or whitespace-only messages
+  if (!message || message.trim() === "") {
+    return;
+  }
+
+  // Apply type styling and icon
   toast.className = `toast toast-${type}`;
   toastIcon.textContent = type === 'success' ? '✅' : '⚠️';
   toastText.textContent = message;
+
+  // Show toast
   toast.classList.add('show');
 
-  setTimeout(() => toast.classList.remove('show'), 4000);
+  // Auto-hide after 4 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 4000);
 }
+
 
 // ── Utility: Sanitize input (basic XSS prevention) ────────────
 function sanitize(str) {
