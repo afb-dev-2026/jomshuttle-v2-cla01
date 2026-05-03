@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JomShuttle — Malaysia's most trusted airport transfer, interstate shuttle and tour package service. Book via WhatsApp in seconds. 24/7, nationwide.">
+  <meta name="keywords" content="shuttle Malaysia, airport transfer KLIA, van hire Malaysia, JomShuttle, interstate transfer, tour package Malaysia">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="JomShuttle — Book Your Ride Across Malaysia">
+  <meta property="og:description" content="Airport transfers, interstate shuttles & tour packages across Peninsular Malaysia. Book via WhatsApp now!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jomshuttle.com">
+
+  <!-- Security Headers (via meta — full implementation in server config) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <!-- CSP: restrict scripts to self + trusted CDNs only -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none';">
+
+  <title>JomShuttle — Book Your Ride Across Malaysia 🇲🇾</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- EmailJS — Required for email notifications to agents -->
+  <!-- SETUP GUIDE:
+       1. Go to https://www.emailjs.com and create a free account
+       2. Add an Email Service (Gmail recommended): copy the Service ID
+       3. Create an Email Template with these variables:
+          {{to_email}}, {{customer_name}}, {{customer_phone}}, {{customer_email}},
+          {{service_type}}, {{pickup_location}}, {{dropoff_location}},
+          {{travel_date}}, {{travel_time}}, {{num_passengers}},
+          {{van_preference}}, {{notes}}, {{booking_time}}
+       4. Copy the Template ID & Public Key (Account tab)
+       5. Paste all three IDs into js/data.js → COMPANY.emailJS
+  -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <!-- Favicon fallback using emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════
+       NAVBAR — built by buildNavbar()
+       ══════════════════════════════════ -->
+  <header id="navbar" role="banner"></header>
+
+  <!-- ══════════════════════════════════
+       HERO SECTION
+       ══════════════════════════════════ -->
+  <section id="hero" role="main"></section>
+
+  <!-- ══════════════════════════════════
+       SERVICES (Airport / Interstate)
+       ══════════════════════════════════ -->
+  <section id="services" class="section" role="region" aria-label="Services"></section>
+
+  <!-- ══════════════════════════════════
+       TOUR PACKAGES
+       ══════════════════════════════════ -->
+  <section id="tours" class="section" role="region" aria-label="Tour Packages"></section>
+
+  <!-- ══════════════════════════════════
+       WHY CHOOSE US
+       ══════════════════════════════════ -->
+  <section id="why-us" class="section" role="region" aria-label="Why JomShuttle"></section>
+
+  <!-- ══════════════════════════════════
+       TESTIMONIALS
+       ══════════════════════════════════ -->
+  <section id="testimonials" class="section" role="region" aria-label="Customer Reviews"></section>
+
+  <!-- ══════════════════════════════════
+       BOOKING FORM
+       ══════════════════════════════════ -->
+  <section id="booking" class="section" role="region" aria-label="Booking Form"></section>
+
+  <!-- ══════════════════════════════════
+       FOOTER
+       ══════════════════════════════════ -->
+  <footer id="footer" role="contentinfo"></footer>
+
+  <!-- ══════════════════════════════════
+       WHATSAPP FAB BUTTON
+       ══════════════════════════════════ -->
+  <div id="wa-fab"></div>
+
+  <!-- ══════════════════════════════════
+       MODALS & TOAST (injected here)
+       ══════════════════════════════════ -->
+  <div id="modals" aria-live="polite"></div>
+
+  <!-- ══════════════════════════════════
+       MAIN SCRIPT — ES Module
+       ══════════════════════════════════ -->
+  <script type="module">
+    import {
+      ThemeManager,
+      buildNavbar,
+      buildHero,
+      buildServices,
+      buildTours,
+      buildWhyUs,
+      buildTestimonials,
+      buildBookingForm,
+      buildFooter,
+      buildWaFab,
+      buildModals,
+      initScrollAnimations,
+      initSmoothScroll
+    } from './js/app.js';
+
+    // ── Initialize app in order ──
+    document.addEventListener('DOMContentLoaded', () => {
+      ThemeManager.init();   // Apply saved theme before render (no flash)
+      buildModals();         // Modals & toast first (needed by other sections)
+      buildNavbar();
+      buildHero();
+      buildServices();
+      buildTours();
+      buildWhyUs();
+      buildTestimonials();
+      buildBookingForm();
+      buildFooter();
+      buildWaFab();
+
+      // ── Post-render setup ──
+      initScrollAnimations();
+      initSmoothScroll();
+
+      // Re-run scroll animations after DOM updates
+      setTimeout(initScrollAnimations, 100);
+    });
+  </script>
+
+</body>
+</html>
