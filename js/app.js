@@ -33,6 +33,27 @@ export const ThemeManager = {
   }
 };
 
+// ── Theme Toggle ───────────────────────────────────────────────
+const themeToggle = document.getElementById('themeToggle');
+
+function updateToggleIcon() {
+  if (document.body.classList.contains('dark')) {
+    themeToggle.textContent = '🌙'; // Dark mode icon
+  } else {
+    themeToggle.textContent = '🌞'; // Light mode icon
+  }
+}
+
+// Initial load
+updateToggleIcon();
+
+// Toggle on click
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  updateToggleIcon();
+});
+
+
 // ── Navbar Builder ─────────────────────────────────────────────
 export function buildNavbar() {
   const nav = document.getElementById('navbar');
@@ -1145,3 +1166,5 @@ export function initSmoothScroll() {
     });
   });
 }
+
+
