@@ -908,36 +908,40 @@ textarea.form-control { resize: vertical; min-height: 90px; }
   }
 }
 
-/* Floating scroll-up button (mobile only) */
+/* Scroll-up button (mobile only, smaller + semi-transparent) */
 @media (max-width: 768px) {
   .scroll-up-btn {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;   /* sits above WhatsApp button */
     right: 20px;
-    width: 42px;
-    height: 42px;
+    width: 32px;    /* smaller size */
+    height: 32px;
     border-radius: 50%;
     background: var(--brand-blue);
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    display: none; /* hidden by default */
-    z-index: 9999;
-    transition: opacity 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 9998;
+    opacity: 0.7;   /* semi-transparent */
+    transition: opacity 0.3s ease, transform 0.2s ease;
   }
 
   .scroll-up-btn.show {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 1;
+    opacity: 0.7;
   }
 
   .scroll-up-btn:hover {
+    opacity: 1;     /* fully visible on hover */
+    transform: scale(1.05);
     background: var(--brand-orange);
   }
 }
+
 
