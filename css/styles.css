@@ -880,9 +880,9 @@ textarea.form-control { resize: vertical; min-height: 90px; }
   .modal-close-btn {
     position: sticky;
     top: 0;
-    width: 30px;            /* smaller button */
-    height: 30px;
-    font-size: 0.85rem;
+    width: 28px;            /* smaller button */
+    height: 28px;
+    font-size: 0.95rem;
   }
 }
 
