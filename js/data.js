@@ -26,6 +26,8 @@
 // ── Company Info ──────────────────────────────────────────────
 export const COMPANY = {
   name: "JomShuttle",
+  logoLight: "assets/jomshuttle_logo_light.png", // white-bg logo
+  logoDark: "assets/jomshuttle_logo_dark.png", // black-bg logo
   tagline: "Book now and let us drive you there!",
   phone: "+60136788869",
   whatsappBase: "https://wasap.my/60136788869/",
@@ -33,13 +35,13 @@ export const COMPANY = {
   email: "jomshuttle@gmail.com",
   emailAgent2: "fahmie1997@yahoo.com",
   hours: "24 hours / 7 days a week",
-  logoLight: "assets/logo-light.png",  // white-bg logo
-  logoDark: "assets/logo-dark.png",   // black-bg logo
+  //logoLight: "assets/logo-light.png",  // white-bg logo
+ // logoDark: "assets/logo-dark.png",   // black-bg logo
   // EmailJS configuration — replace with your actual IDs from emailjs.com
   emailJS: {
-    publicKey: "YOUR_EMAILJS_PUBLIC_KEY",      // From EmailJS dashboard → Account
-    serviceId: "YOUR_EMAILJS_SERVICE_ID",      // From EmailJS dashboard → Email Services
-    templateId: "YOUR_EMAILJS_TEMPLATE_ID",   // From EmailJS dashboard → Email Templates
+    publicKey: "XWpZk_d0xRg1WMmhE",      // From EmailJS dashboard → Account
+    serviceId: "service_ae6ncn1",      // From EmailJS dashboard → Email Services
+    templateId: "template_7li5hls",   // From EmailJS dashboard → Email Templates
   }
 };
 

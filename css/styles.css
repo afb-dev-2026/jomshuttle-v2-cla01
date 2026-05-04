@@ -224,7 +224,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
 .nav-logo {
   display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
 }
-.nav-logo img { height: 44px; width: auto; transition: var(--transition); }
+.nav-logo img { height: 40px; width: auto; transition: var(--transition); background-color: var(--background); }
 .nav-logo:hover img { transform: scale(1.05); }
 .nav-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; }
 .logo-jom { color: var(--brand-blue); }
@@ -853,3 +853,58 @@ textarea.form-control { resize: vertical; min-height: 90px; }
   border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Mobile fix for Route Details modal ────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .modal-box {
+    max-height: 90vh;       /* keep modal within screen */
+    overflow-y: auto;       /* allow scrolling inside */
+    padding-top: 2.5rem;      /* reduced space for close bar */
+  }
+
+  .modal-close {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: linear-gradient(
+      to bottom,
+      var(--bg-card) 85%,
+      rgba(0,0,0,0) 100%
+    );                      /* gradient fade into content */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1); /* lighter shadow */
+    padding: 0.4rem 0.75rem; /* thinner bar */
+    min-height: 36px;       /* compact height */
+  }
+
+  .modal-close-btn {
+    position: sticky;
+    top: 0;
+    width: 28px;            /* smaller button */
+    height: 28px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Desktop override — keep original look */
+@media (min-width: 769px) {
+  .modal-box {
+    padding-top: 0;
+  }
+
+  .modal-close {
+    position: relative;
+    background: var(--bg-card);
+    box-shadow: none;
+    padding: 1rem 1.25rem;
+    min-height: auto;
+  }
+
+  .modal-close-btn {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}
+
