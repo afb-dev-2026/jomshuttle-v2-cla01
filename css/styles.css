@@ -860,32 +860,33 @@ textarea.form-control { resize: vertical; min-height: 90px; }
   .modal-box {
     max-height: 90vh;       /* keep modal within screen */
     overflow-y: auto;       /* allow scrolling inside */
-    padding-top: 2.5rem;    /* space for close bar */
+    padding-top: 2rem;      /* reduced space for close bar */
   }
 
   .modal-close {
-    position: sticky;       /* keeps close bar visible */
+    position: sticky;
     top: 0;
     z-index: 20;
     background: linear-gradient(
       to bottom,
-      var(--bg-card) 85%,
+      var(--bg-card) 75%,
       rgba(0,0,0,0) 100%
     );                      /* gradient fade into content */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* subtle shadow */
-    padding: 0.4rem 0.75rem; /* thinner bar */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1); /* lighter shadow */
+    padding: 0.35rem 0.75rem; /* thinner bar */
+    min-height: 36px;       /* compact height */
   }
 
   .modal-close-btn {
     position: sticky;
     top: 0;
-    width: 26px;            /* smaller button */
-    height: 26px;
-    font-size: 0.85rem;
+    width: 24px;            /* smaller button */
+    height: 24px;
+    font-size: 0.8rem;
   }
 }
 
-/*  ── Desktop override — keep original look ──────────────────── */
+/* Desktop override — keep original look */
 @media (min-width: 769px) {
   .modal-box {
     padding-top: 0;
@@ -893,9 +894,10 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 
   .modal-close {
     position: relative;
-    background: var(--bg-card); /* no gradient on desktop */
+    background: var(--bg-card);
     box-shadow: none;
     padding: 1rem 1.25rem;
+    min-height: auto;
   }
 
   .modal-close-btn {
@@ -905,3 +907,4 @@ textarea.form-control { resize: vertical; min-height: 90px; }
     font-size: 1.1rem;
   }
 }
+
