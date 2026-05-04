@@ -860,7 +860,7 @@ textarea.form-control { resize: vertical; min-height: 90px; }
   .modal-box {
     max-height: 90vh;       /* keep modal within screen */
     overflow-y: auto;       /* allow scrolling inside */
-    padding-top: 2rem;      /* reduced space for close bar */
+    padding-top: 2.5rem;      /* reduced space for close bar */
   }
 
   .modal-close {
@@ -869,20 +869,20 @@ textarea.form-control { resize: vertical; min-height: 90px; }
     z-index: 20;
     background: linear-gradient(
       to bottom,
-      var(--bg-card) 75%,
+      var(--bg-card) 85%,
       rgba(0,0,0,0) 100%
     );                      /* gradient fade into content */
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1); /* lighter shadow */
-    padding: 0.35rem 0.75rem; /* thinner bar */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* lighter shadow */
+    padding: 0.4rem 0.75rem; /* thinner bar */
     min-height: 36px;       /* compact height */
   }
 
   .modal-close-btn {
     position: sticky;
     top: 0;
-    width: 24px;            /* smaller button */
-    height: 24px;
-    font-size: 0.8rem;
+    width: 28px;            /* smaller button */
+    height: 28px;
+    font-size: 0.85rem;
   }
 }
 
