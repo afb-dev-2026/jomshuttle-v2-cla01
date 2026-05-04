@@ -872,7 +872,7 @@ textarea.form-control { resize: vertical; min-height: 90px; }
       var(--bg-card) 85%,
       rgba(0,0,0,0) 100%
     );                      /* gradient fade into content */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* lighter shadow */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1); /* lighter shadow */
     padding: 0.4rem 0.75rem; /* thinner bar */
     min-height: 36px;       /* compact height */
   }
