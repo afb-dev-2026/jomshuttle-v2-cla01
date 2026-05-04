@@ -853,3 +853,41 @@ textarea.form-control { resize: vertical; min-height: 90px; }
   border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Mobile fix for Route Details modal  ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .modal-box {
+    max-height: 90vh;       /* keep modal within screen */
+    overflow-y: auto;       /* allow scrolling inside */
+    padding-top: 3.5rem;    /* space for sticky close bar */
+  }
+
+  .modal-close {
+    position: sticky;       /* keeps close bar visible */
+    top: 0;
+    z-index: 20;
+    background: var(--bg-card);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* subtle shadow */
+  }
+
+  .modal-close-btn {
+    position: sticky;       /* pins close button at top */
+    top: 0;
+  }
+}
+
+/* Desktop override — keep original look */
+@media (min-width: 769px) {
+  .modal-box {
+    padding-top: 0;         /* remove extra spacing */
+  }
+
+  .modal-close {
+    position: relative;     /* restore default positioning */
+    box-shadow: none;       /* no shadow on desktop */
+  }
+
+  .modal-close-btn {
+    position: relative;     /* restore default positioning */
+  }
+}
