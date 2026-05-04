@@ -854,40 +854,54 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Mobile fix for Route Details modal  ────────────────────────────────────── */
+/* ── Mobile fix for Route Details modal ────────────────────────────────────── */
+
 @media (max-width: 768px) {
   .modal-box {
     max-height: 90vh;       /* keep modal within screen */
     overflow-y: auto;       /* allow scrolling inside */
-    padding-top: 3.5rem;    /* space for sticky close bar */
+    padding-top: 2.5rem;    /* space for close bar */
   }
 
   .modal-close {
     position: sticky;       /* keeps close bar visible */
     top: 0;
     z-index: 20;
-    background: var(--bg-card);
+    background: linear-gradient(
+      to bottom,
+      var(--bg-card) 85%,
+      rgba(0,0,0,0) 100%
+    );                      /* gradient fade into content */
     box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* subtle shadow */
+    padding: 0.4rem 0.75rem; /* thinner bar */
   }
 
   .modal-close-btn {
-    position: sticky;       /* pins close button at top */
+    position: sticky;
     top: 0;
+    width: 26px;            /* smaller button */
+    height: 26px;
+    font-size: 0.85rem;
   }
 }
 
-/* Desktop override — keep original look */
+/*  ── Desktop override — keep original look ──────────────────── */
 @media (min-width: 769px) {
   .modal-box {
-    padding-top: 0;         /* remove extra spacing */
+    padding-top: 0;
   }
 
   .modal-close {
-    position: relative;     /* restore default positioning */
-    box-shadow: none;       /* no shadow on desktop */
+    position: relative;
+    background: var(--bg-card); /* no gradient on desktop */
+    box-shadow: none;
+    padding: 1rem 1.25rem;
   }
 
   .modal-close-btn {
-    position: relative;     /* restore default positioning */
+    position: relative;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
   }
 }
