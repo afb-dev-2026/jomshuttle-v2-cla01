@@ -448,23 +448,7 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
   display: none !important;
 }
 /* ── Service Tabs ──────────────────────────────────────────── */
-#services { background: var(--bg-secondary); }
-.service-tabs {
-  display: flex; justify-content: center; gap: 0.5rem;
-  margin-bottom: 2.5rem; flex-wrap: wrap;
-}
-.service-tab {
-  display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.75rem 1.5rem; border-radius: var(--radius-full);
-  font-weight: 700; font-size: 0.9rem; color: var(--text-secondary);
-  background: var(--bg-card); border: 2px solid var(--border);
-  transition: var(--transition); cursor: pointer;
-}
-.service-tab.active {
-  background: var(--brand-gradient-soft); color: #fff;
-  border-color: transparent; box-shadow: 0 4px 15px rgba(26,115,232,0.3);
-}
-.service-tab:hover:not(.active) { border-color: var(--brand-blue); color: var(--brand-blue); }/* ── Service Tabs ─────────────────────────── */
+/* ── Service Tabs ─────────────────────────────────────────── */
 .service-tab {
   display: flex;
   align-items: center;
@@ -473,28 +457,29 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
   border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--text-secondary);
-  background: var(--bg-card);
-  border: none; /* remove solid border */
+  color: #fff;
+  background: var(--brand-blue); /* same as View Details */
+  border: none;
   transition: var(--transition);
   cursor: pointer;
-  overflow: hidden; /* ensures gradient fills edge-to-edge */
+  box-shadow: 0 4px 12px rgba(26,115,232,0.25);
 }
 
+.service-tab:hover,
 .service-tab.active {
-  background: var(--brand-gradient-soft); /* smooth gradient */
+  background: var(--brand-orange); /* hover/active accent */
   color: #fff;
-  box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+  box-shadow: 0 6px 18px rgba(26,115,232,0.35);
 }
 
-.service-tab:hover:not(.active) {
-  background: var(--brand-gradient); /* stronger gradient on hover */
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(37,99,235,0.45);
+.service-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.service-content.active {
+  display: block;
 }
 
-.service-content { display: none; animation: fadeIn 0.3s ease; }
-.service-content.active { display: block; }
 
 /* ── Destination Cards ─────────────────────────────────────── */
 .dest-card {
