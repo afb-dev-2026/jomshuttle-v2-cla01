@@ -454,16 +454,30 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
   margin-bottom: 2.5rem; flex-wrap: wrap;
 }
 .service-tab {
-  display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.75rem 1.5rem; border-radius: var(--radius-full);
-  font-weight: 700; font-size: 0.9rem; color: var(--text-secondary);
-  background: var(--bg-card); border: 2px solid var(--border);
-  transition: var(--transition); cursor: pointer;
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem; 
+  border-radius: var(--radius-full);
+  font-weight: 700; 
+  font-size: 0.9rem; 
+  color: var(--text-secondary);
+  background: var(--bg-card); 
+  border: 2px solid var(--border);
+  transition: var(--transition); 
+  cursor: pointer;
+  overflow: hidden; /* ADD THIS: Prevents color leaking outside the radius */
 }
+
 .service-tab.active {
-  background: var(--brand-gradient-soft); color: #fff;
-  border-color: transparent; box-shadow: 0 4px 15px rgba(26,115,232,0.3);
+  background: var(--brand-gradient-soft); 
+  color: #fff;
+  border: 2px solid transparent; /* Keep the border size so the button doesn't jump */
+  background-clip: border-box;   /* ADD THIS: Forces gradient to cover the border area */
+  background-origin: border-box; /* ADD THIS: Aligns gradient to the very edge */
+  box-shadow: 0 4px 15px rgba(26,115,232,0.3);
 }
+
 .service-tab:hover:not(.active) { border-color: var(--brand-blue); color: var(--brand-blue); }
 .service-content { display: none; animation: fadeIn 0.3s ease; }
 .service-content.active { display: block; }
