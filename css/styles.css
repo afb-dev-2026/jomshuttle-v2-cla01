@@ -443,10 +443,19 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
   transition: var(--transition); cursor: pointer;
 }
 .service-tab.active {
-  background: var(--brand-gradient-soft); color: #fff;
-  border-color: transparent; box-shadow: 0 4px 15px rgba(37,99,235,0.3);
+  background: var(--brand-gradient); /* stronger gradient */
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(37,99,235,0.35);
 }
-.service-tab:hover:not(.active) { border-color: var(--brand-blue); color: var(--brand-blue); }
+
+.service-tab:hover:not(.active) {
+  background: var(--brand-gradient-soft); /* soft gradient on hover */
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.45);
+}
+
 .service-content { display: none; animation: fadeIn 0.3s ease; }
 .service-content.active { display: block; }
 
