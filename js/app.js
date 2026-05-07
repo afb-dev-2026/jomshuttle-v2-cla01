@@ -772,7 +772,7 @@ async function sendEmailNotification(data) {
     return;
   }
 
-  emailjs.init(COMPANY.emailJS.publicKey);
+
 
   const templateParams = {
     to_email:   COMPANY.email,       // Primary agent email
@@ -795,15 +795,10 @@ async function sendEmailNotification(data) {
   await emailjs.send(
     COMPANY.emailJS.serviceId,
     COMPANY.emailJS.templateId,
-    { ...templateParams, to_email: COMPANY.email }
+    templateParams
   );
 
-  // Send to secondary agent
-  await emailjs.send(
-    COMPANY.emailJS.serviceId,
-    COMPANY.emailJS.templateId,
-    { ...templateParams, to_email: COMPANY.emailAgent2 }
-  );
+
 }
 
 // ── Destination Detail Modal ───────────────────────────────────
