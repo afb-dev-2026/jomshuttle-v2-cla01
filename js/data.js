@@ -33,14 +33,14 @@ export const COMPANY = {
   whatsappBase: "https://wasap.my/60136788869/",
   whatsappGeneral: "https://wasap.my/60136788869/JomShuttle",
   email: "jomshuttle@gmail.com",
-  emailAgent2: "my.hnf.storee@gmail.com",
+  emailAgent2: "my.hnf.store@gmail.com",
   hours: "24 hours / 7 days a week",
   //logoLight: "assets/logo-light.png",  // white-bg logo
  // logoDark: "assets/logo-dark.png",   // black-bg logo
   // EmailJS configuration — replace with your actual IDs from emailjs.com
   emailJS: {
     publicKey: "XWpZk_d0xRg1WMmhE",      // From EmailJS dashboard → Account
-    serviceId: "service_ae6ncn1",      // From EmailJS dashboard → Email Services
+    serviceId: "service_9au6son",      // From EmailJS dashboard → Email Services
     templateId: "template_7li5hls",   // From EmailJS dashboard → Email Templates
   }
 };

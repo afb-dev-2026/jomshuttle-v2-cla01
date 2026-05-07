@@ -779,7 +779,8 @@ async function sendEmailNotification(data) {
   }
 
   const templateParams = {
-    to_email:         COMPANY.email,
+    to_email:         COMPANY.email, // primary agent email
+    to_email_2:       COMPANY.emailAgent2, // Secondary agent email
     customer_name:    data.name,
     customer_phone:   data.phone,
     customer_email:   data.email || 'Not provided',
