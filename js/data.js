@@ -33,7 +33,7 @@ export const COMPANY = {
   whatsappBase: "https://wasap.my/60136788869/",
   whatsappGeneral: "https://wasap.my/60136788869/JomShuttle",
   email: "jomshuttle@gmail.com",
-  emailAgent2: "fahmie1997@yahoo.com",
+  emailAgent2: "my.hnf.storee@gmail.com",
   hours: "24 hours / 7 days a week",
   //logoLight: "assets/logo-light.png",  // white-bg logo
  // logoDark: "assets/logo-dark.png",   // black-bg logo
