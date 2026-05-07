@@ -565,9 +565,8 @@ export function buildBookingForm() {
               <label class="form-label" for="f_service">Service Type <span>*</span></label>
               <select class="form-control" id="f_service" name="f_service" required>
                 <option value="">— Select a service —</option>
-                <optgroup label="✈️ Airport Transfer">
-                  
-                  <option value="airport-klia">KLIA / KLIA2 to:</option>
+                <optgroup label="✈️ Airport Transfer - KLIA / KLIA2 to">                  
+                  <!--<option value="airport-klia">KLIA / KLIA2 to:</option>-->
                   ${destOptions}
                 </optgroup>
                 <!--
