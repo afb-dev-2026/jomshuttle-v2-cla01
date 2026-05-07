@@ -765,18 +765,21 @@ function buildWhatsAppMessage(data) {
 }
 
 // ── EmailJS Notification ───────────────────────────────────────
+let emailJSInitialized = false;
+
 async function sendEmailNotification(data) {
-  // EmailJS must be loaded via CDN in index.html
   if (typeof emailjs === 'undefined') {
     console.warn('EmailJS not loaded. Skipping email notification.');
     return;
   }
 
-
+  if (!emailJSInitialized) {
+    emailjs.init(COMPANY.emailJS.publicKey);
+    emailJSInitialized = true;
+  }
 
   const templateParams = {
-    to_email:   COMPANY.email,       // Primary agent email
-    to_email_2: COMPANY.emailAgent2, // Secondary agent email
+    to_email:         COMPANY.email,
     customer_name:    data.name,
     customer_phone:   data.phone,
     customer_email:   data.email || 'Not provided',
@@ -791,14 +794,11 @@ async function sendEmailNotification(data) {
     booking_time:     new Date().toLocaleString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' })
   };
 
-  // Send to primary agent
   await emailjs.send(
     COMPANY.emailJS.serviceId,
     COMPANY.emailJS.templateId,
     templateParams
   );
-
-
 }
 
 // ── Destination Detail Modal ───────────────────────────────────
