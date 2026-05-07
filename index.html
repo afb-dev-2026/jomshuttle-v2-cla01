@@ -43,7 +43,7 @@
        4. Copy the Template ID & Public Key (Account tab)
        5. Paste all three IDs into js/data.js → COMPANY.emailJS
   -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <!-- Favicon fallback using emoji -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
@@ -126,6 +126,7 @@
 
     // ── Initialize app in order ──
     document.addEventListener('DOMContentLoaded', () => {
+      emailjs.init("XWpZk_d0xRg1WMmhE");
       ThemeManager.init();   // Apply saved theme before render (no flash)
       buildModals();         // Modals & toast first (needed by other sections)
       buildNavbar();
