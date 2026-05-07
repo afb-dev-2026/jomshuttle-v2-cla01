@@ -40,7 +40,7 @@ export const COMPANY = {
   // EmailJS configuration — replace with your actual IDs from emailjs.com
   emailJS: {
     publicKey: "XWpZk_d0xRg1WMmhE",      // From EmailJS dashboard → Account
-    serviceId: "service_ae6ncn1",      // From EmailJS dashboard → Email Services
+    serviceId: "service_9au6son",      // From EmailJS dashboard → Email Services
     templateId: "template_7li5hls",   // From EmailJS dashboard → Email Templates
   }
 };
