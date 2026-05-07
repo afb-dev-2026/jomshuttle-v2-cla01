@@ -84,13 +84,15 @@ export function buildNavbar() {
           </div>
           <div class="nav-dropdown-menu">${destItems}</div>
         </div>
-
+        
+        <!--
         <div class="nav-dropdown">
           <div class="nav-dropdown-toggle">
             🚐 Interstate Transfer <span>▾</span>
           </div>
           <div class="nav-dropdown-menu">${destItems}</div>
         </div>
+        -->
 
         <a href="#tours" class="nav-link">🗺️ Tour Packages</a>
         <a href="#why-us" class="nav-link">Why Us</a>
@@ -291,9 +293,11 @@ export function buildServices() {
         <button class="service-tab active" data-tab="airport" role="tab">
           ✈️ Airport Transfer
         </button>
+        <!--
         <button class="service-tab" data-tab="interstate" role="tab">
           🚐 Interstate Transfer
         </button>
+        -->
         <button class="service-tab" data-tab="tours-tab" role="tab">
           🗺️ Tour Packages
         </button>
@@ -327,6 +331,7 @@ export function buildServices() {
       </div>
 
       <!-- Interstate Transfer tab (same destinations) -->
+      <!--
       <div class="service-content" id="tab-interstate">
         <div class="van-info-banner animate-on-scroll">
           <div class="van-info-item">
@@ -346,6 +351,7 @@ export function buildServices() {
         </div>
         <div class="grid-3">${destGrid}</div>
       </div>
+      -->
 
       <!-- Tour Packages mini-tab -->
       <div class="service-content" id="tab-tours-tab">
@@ -559,12 +565,15 @@ export function buildBookingForm() {
               <label class="form-label" for="f_service">Service Type <span>*</span></label>
               <select class="form-control" id="f_service" name="f_service" required>
                 <option value="">— Select a service —</option>
-                <optgroup label="✈️ Airport Transfer">
-                  <option value="airport-klia">KLIA / KLIA2 Transfer</option>
+                <optgroup label="✈️ Airport Transfer - KLIA / KLIA2 to">                  
+                  <!--<option value="airport-klia">KLIA / KLIA2 to:</option>-->
+                  ${destOptions}
                 </optgroup>
+                <!--
                 <optgroup label="🚐 Interstate Transfer">
                   ${destOptions}
                 </optgroup>
+                -->
                 <optgroup label="🗺️ Tour Package">
                   ${tourOptions}
                 </optgroup>
