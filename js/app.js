@@ -84,13 +84,15 @@ export function buildNavbar() {
           </div>
           <div class="nav-dropdown-menu">${destItems}</div>
         </div>
-
+        
+        <!--
         <div class="nav-dropdown">
           <div class="nav-dropdown-toggle">
             🚐 Interstate Transfer <span>▾</span>
           </div>
           <div class="nav-dropdown-menu">${destItems}</div>
         </div>
+        -->
 
         <a href="#tours" class="nav-link">🗺️ Tour Packages</a>
         <a href="#why-us" class="nav-link">Why Us</a>
