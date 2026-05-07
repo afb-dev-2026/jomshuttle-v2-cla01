@@ -15,12 +15,11 @@
 
   <!-- Security Headers (via meta — full implementation in server config) -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
+
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
   <!-- CSP: restrict scripts to self + trusted CDNs only -->
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com; frame-ancestors 'none';">
-
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdn.emailjs.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com https://cdn.jsdelivr.net;">
   <title>JomShuttle — Book Your Ride Across Malaysia 🇲🇾</title>
 
   <!-- Fonts -->
@@ -43,7 +42,7 @@
        4. Copy the Template ID & Public Key (Account tab)
        5. Paste all three IDs into js/data.js → COMPANY.emailJS
   -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <!-- Favicon fallback using emoji -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
@@ -126,6 +125,7 @@
 
     // ── Initialize app in order ──
     document.addEventListener('DOMContentLoaded', () => {
+      emailjs.init("XWpZk_d0xRg1WMmhE");
       ThemeManager.init();   // Apply saved theme before render (no flash)
       buildModals();         // Modals & toast first (needed by other sections)
       buildNavbar();
