@@ -448,7 +448,11 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
   display: none !important;
 }
 /* ── Service Tabs ──────────────────────────────────────────── */
-/* ── Service Tabs ─────────────────────────────────────────── */
+#services { background: var(--bg-secondary); }
+.service-tabs {
+  display: flex; justify-content: center; gap: 0.5rem;
+  margin-bottom: 2.5rem; flex-wrap: wrap;
+}
 .service-tab {
   display: flex; 
   align-items: center; 
