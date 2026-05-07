@@ -291,9 +291,11 @@ export function buildServices() {
         <button class="service-tab active" data-tab="airport" role="tab">
           ✈️ Airport Transfer
         </button>
+        <!--
         <button class="service-tab" data-tab="interstate" role="tab">
           🚐 Interstate Transfer
         </button>
+        -->
         <button class="service-tab" data-tab="tours-tab" role="tab">
           🗺️ Tour Packages
         </button>
@@ -327,6 +329,7 @@ export function buildServices() {
       </div>
 
       <!-- Interstate Transfer tab (same destinations) -->
+      <!--
       <div class="service-content" id="tab-interstate">
         <div class="van-info-banner animate-on-scroll">
           <div class="van-info-item">
@@ -346,6 +349,7 @@ export function buildServices() {
         </div>
         <div class="grid-3">${destGrid}</div>
       </div>
+      -->
 
       <!-- Tour Packages mini-tab -->
       <div class="service-content" id="tab-tours-tab">
