@@ -988,7 +988,7 @@ export function buildFooter() {
           <div class="footer-col-title" style="margin-top:1.5rem">Services</div>
           <div class="footer-links">
             <a href="#services" class="footer-link">✈️ Airport Transfer</a>
-            <a href="#services" class="footer-link">🚐 Interstate Transfer</a>
+            <!-- <a href="#services" class="footer-link">🚐 Interstate Transfer</a> -->
             <a href="#booking" class="footer-link">📋 Book Now</a>
           </div>
         </div>
