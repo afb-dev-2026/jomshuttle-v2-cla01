@@ -690,6 +690,35 @@ textarea.form-control { resize: vertical; min-height: 90px; }
 }
 .van-info-desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
 
+/* ── Testimonial Slider (Mobile) ───────────────────────────── */
+.testimonial-slider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .testimonial-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scrollbar-width: none; /* hide scrollbar Firefox */
+  }
+
+  .testimonial-slider::-webkit-scrollbar {
+    display: none; /* hide scrollbar Chrome/Safari */
+  }
+
+  .testimonial-slider .testimonial-card {
+    flex: 0 0 85vw;      /* each card takes 85% of screen width */
+    max-width: 85vw;
+    scroll-snap-align: center;
+  }
+}
+
 /* ── Footer ────────────────────────────────────────────────── */
 #footer {
   background: var(--bg-secondary); border-top: 1px solid var(--border);
