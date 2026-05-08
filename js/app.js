@@ -472,7 +472,7 @@ export function buildTestimonials() {
         <div class="section-label">💬 Reviews</div>
         <h2 class="section-title">What Our Customers Say</h2>
       </div>
-      <div class="grid-2">
+      <div class="testimonial-slider">
         ${TESTIMONIALS.map(t => `
           <div class="testimonial-card animate-on-scroll">
             <div class="t-stars">${'★'.repeat(t.rating)}</div>
