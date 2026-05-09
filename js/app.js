@@ -465,30 +465,56 @@ export function buildWhyUs() {
 export function buildTestimonials() {
   const el = document.getElementById('testimonials');
   if (!el) return;
-
   el.innerHTML = `
     <div class="container">
       <div class="section-header">
         <div class="section-label">💬 Reviews</div>
         <h2 class="section-title">What Our Customers Say</h2>
       </div>
-      <div class="testimonial-slider">
-        ${TESTIMONIALS.map(t => `
-          <div class="testimonial-card animate-on-scroll">
-            <div class="t-stars">${'★'.repeat(t.rating)}</div>
-            <div class="t-text">"${t.text}"</div>
-            <div class="t-author">
-              <div class="t-avatar">${t.avatar}</div>
-              <div>
-                <div class="t-name">${t.name}</div>
-                <div class="t-location">📍 ${t.location}</div>
+      <div class="testimonial-wrapper">
+        <div class="testimonial-slider" id="testimonialSlider">
+          ${TESTIMONIALS.map(t => `
+            <div class="testimonial-card animate-on-scroll">
+              <div class="t-stars">${'★'.repeat(t.rating)}</div>
+              <div class="t-text">"${t.text}"</div>
+              <div class="t-author">
+                <div class="t-avatar">${t.avatar}</div>
+                <div>
+                  <div class="t-name">${t.name}</div>
+                  <div class="t-location">📍 ${t.location}</div>
+                </div>
               </div>
             </div>
-          </div>
-        `).join('')}
+          `).join('')}
+        </div>
+        <div class="testimonial-dots" id="testimonialDots">
+          ${TESTIMONIALS.map((_, i) => `
+            <button class="t-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Review ${i + 1}"></button>
+          `).join('')}
+        </div>
       </div>
     </div>
   `;
+
+  // Dot indicator sync — mobile only
+  requestAnimationFrame(() => {
+    const slider = document.getElementById('testimonialSlider');
+    const dots = document.querySelectorAll('.t-dot');
+    if (!slider || !dots.length) return;
+
+    slider.addEventListener('scroll', () => {
+      const cardWidth = slider.querySelector('.testimonial-card')?.offsetWidth + 16;
+      const index = Math.round(slider.scrollLeft / cardWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        const cardWidth = slider.querySelector('.testimonial-card')?.offsetWidth + 16;
+        slider.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+      });
+    });
+  });
 }
 
 // ── Booking Form Section ───────────────────────────────────────
