@@ -510,3 +510,42 @@ export const TESTIMONIALS = [
     avatar: "NH"
   }
 ];
+
+// ── Gallery Photos ─────────────────────────────────────────────
+// To add/remove photos: just edit this array.
+// Fields:
+//   src     — path to image file (put photos in assets/gallery/)
+//   caption — shown in lightbox below the photo
+//   tag     — small label shown on hover (keep short)
+export const GALLERY_PHOTOS = [
+  {
+    src:     'assets/gallery/van-klia.jpg',
+    caption: 'Large Van — KLIA Transfer',
+    tag:     '🚐 Van',
+  },
+  {
+    src:     'assets/gallery/airport-pickup.jpg',
+    caption: 'Airport pickup, on time',
+    tag:     '✈️ Airport',
+  },
+  {
+    src:     'assets/gallery/langkawi-tour.jpg',
+    caption: 'Langkawi Island Tour',
+    tag:     '🌴 Tour',
+  },
+  {
+    src:     'assets/gallery/cameron.jpg',
+    caption: 'Cameron Highlands Day Trip',
+    tag:     '🏔️ Tour',
+  },
+  {
+    src:     'assets/gallery/customers.jpg',
+    caption: 'Happy customers, every trip',
+    tag:     '😊 Customers',
+  },
+  {
+    src:     'assets/gallery/small-van.jpg',
+    caption: 'Small Van — perfect for groups',
+    tag:     '🚌 Van',
+  },
+];
