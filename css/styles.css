@@ -986,3 +986,38 @@ textarea.form-control { resize: vertical; min-height: 90px; }
     background: var(--brand-orange);
   }
 }
+
+/* ── Testimonial Dots ──────────────────────────────────────── */
+.testimonial-wrapper {
+  position: relative;
+}
+
+.testimonial-dots {
+  display: none; /* hidden on desktop */
+}
+
+@media (max-width: 768px) {
+  .testimonial-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.25rem;
+  }
+
+  .t-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+  }
+
+  .t-dot.active {
+    width: 28px;           /* active dot stretches into a dash */
+    background: var(--brand-blue);
+  }
+}
