@@ -498,7 +498,7 @@ export const TESTIMONIALS = [
   {
     name: "Raj Kumar",
     location: "Penang",
-    text: "Needed a last-minute airport transfer. WhatsApp reply came in under 3 minutes. Smooth ride to KLIA2. Great service at a fair price.",
+    text: "Needed a last-minute airport transfer. WhatsApp reply came in very fast. Smooth ride to KLIA2. Great service at a fair price.",
     rating: 5,
     avatar: "RK"
   },
