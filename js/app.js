@@ -544,6 +544,106 @@ export function buildTestimonials() {
   });
 }
 
+// ── Gallery Section ────────────────────────────────────────────
+export function buildGallery() {
+  const el = document.getElementById('gallery');
+  if (!el) return;
+
+  const PHOTOS = [
+    { src: 'assets/gallery/van-klia.jpg',        caption: 'Large Van — KLIA Transfer',      tag: '🚐 Van' },
+    { src: 'assets/gallery/airport-pickup.jpg',  caption: 'Airport pickup, on time',        tag: '✈️ Airport' },
+    { src: 'assets/gallery/langkawi-tour.jpg',   caption: 'Langkawi Island Tour',           tag: '🌴 Tour' },
+    { src: 'assets/gallery/cameron.jpg',         caption: 'Cameron Highlands Day Trip',     tag: '🏔️ Tour' },
+    { src: 'assets/gallery/customers.jpg',       caption: 'Happy customers, every trip',    tag: '😊 Customers' },
+    { src: 'assets/gallery/small-van.jpg',       caption: 'Small Van — perfect for groups', tag: '🚌 Van' },
+  ];
+
+  el.innerHTML = `
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">📸 Our Gallery</div>
+        <h2 class="section-title">See Our Vans & Happy Customers</h2>
+        <p class="section-subtitle">Real trips, real smiles — across Malaysia</p>
+      </div>
+
+      <div class="gallery-grid">
+        ${PHOTOS.map((p, i) => `
+          <div class="gallery-item ${i === 0 ? 'gallery-item--large' : i === 3 ? 'gallery-item--tall' : ''}"
+               data-index="${i}" role="button" tabindex="0" aria-label="View ${p.caption}">
+            <img src="${p.src}" alt="${p.caption}" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-tag">${p.tag}</span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="text-align:center;margin-top:1.5rem">
+        <a href="#booking" class="btn btn-primary">📋 Book Your Trip Now</a>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+      <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">‹</button>
+      <button class="lightbox-next" id="lightboxNext" aria-label="Next">›</button>
+      <div class="lightbox-content">
+        <img id="lightboxImg" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+    </div>
+  `;
+
+  // Lightbox logic
+  const photos = PHOTOS;
+  let current = 0;
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbCaption = document.getElementById('lightboxCaption');
+
+  function openLightbox(index) {
+    current = index;
+    lbImg.src = photos[current].src;
+    lbCaption.textContent = photos[current].caption;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() {
+    current = (current - 1 + photos.length) % photos.length;
+    lbImg.src = photos[current].src;
+    lbCaption.textContent = photos[current].caption;
+  }
+
+  function showNext() {
+    current = (current + 1) % photos.length;
+    lbImg.src = photos[current].src;
+    lbCaption.textContent = photos[current].caption;
+  }
+
+  el.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => openLightbox(+item.dataset.index));
+    item.addEventListener('keydown', e => { if (e.key === 'Enter') openLightbox(+item.dataset.index); });
+  });
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', showPrev);
+  document.getElementById('lightboxNext').addEventListener('click', showNext);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+}
+
 // ── Booking Form Section ───────────────────────────────────────
 export function buildBookingForm() {
   const el = document.getElementById('booking');
