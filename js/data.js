@@ -519,19 +519,19 @@ export const TESTIMONIALS = [
 //   tag     — small label shown on hover (keep short)
 export const GALLERY_PHOTOS = [
   {
-    src:     'assets/gallery/van-klia.jpg',
+    src:     'assets/gallery/08b8d0ef-1ad1-450b-a4cd-55995479f5ed.jpeg',
     caption: 'Large Van — KLIA Transfer',
     tag:     '🚐 Van',
   },
   {
-    src:     'assets/gallery/airport-pickup.jpg',
+    src:     'assets/gallery/1314a6e8-d8bd-4c58-9d4e-6bca4043bc67.jpeg',
     caption: 'Airport pickup, on time',
     tag:     '✈️ Airport',
   },
   {
-    src:     'assets/gallery/langkawi-tour.jpg',
-    caption: 'Langkawi Island Tour',
-    tag:     '🌴 Tour',
+    src:     'assets/gallery/3546b0a0-e1db-4677-a24f-444a43c2225c.jpeg',
+    caption: 'Airport transfer van, ',
+    tag:     '🌴 Group Transfer',
   },
   {
     src:     'assets/gallery/cameron.jpg',
