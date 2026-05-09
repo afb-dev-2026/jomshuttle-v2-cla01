@@ -769,37 +769,26 @@ async function handleBookingSubmit(e) {
   btn.disabled = true;
 
   try {
-    // ── Step 1: Send via WhatsApp
-    const waMsg = buildWhatsAppMessage(data);
-    const waUrl = `https://wa.me/${COMPANY.phone.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(waMsg)}`;
+// ── Step 1: Build WhatsApp URL
+  const waMsg = buildWhatsAppMessage(data);
+  const waUrl = `https://wa.me/${COMPANY.phone.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(waMsg)}`;
 
-    // ── Step 2: Send email via EmailJS (to both agents)
+  // ── Step 2: Open WhatsApp IMMEDIATELY — must be before any await
+  window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+  // ── Step 3: Show success state right away
+  form.style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+  showToast('✅ Booking sent! Check your WhatsApp.', 'success');
+  sessionStorage.setItem('jom_last_submit', now.toString());
+  btn.innerHTML = originalHTML;
+  btn.disabled = false;
+
+  // ── Step 4: Send email silently in background — after WhatsApp is already open
+  try {
     await sendEmailNotification(data);
-
-    // ── Record submission time
-    sessionStorage.setItem('jom_last_submit', now.toString());
-
-    // ── Open WhatsApp in new tab
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
-
-    // ── Show success state
-    form.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
-    showToast('✅ Booking sent! Check your WhatsApp.', 'success');
-
   } catch (err) {
-    console.error('Booking error:', err);
-    showToast('⚠️ Email notification failed, but WhatsApp was opened.', 'error');
-    // Still open WhatsApp even if email fails
-    const waMsg = buildWhatsAppMessage(data);
-    const waUrl = `https://wa.me/${COMPANY.phone.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(waMsg)}`;
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
-
-    form.style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
-  } finally {
-    btn.innerHTML = originalHTML;
-    btn.disabled = false;
+    console.warn('Email notification failed (WhatsApp already sent):', err);
   }
 }
 
