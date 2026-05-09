@@ -6,7 +6,7 @@
  * ============================================================
  */
 
-import { COMPANY, DESTINATIONS, TOUR_PACKAGES, WHY_US, TESTIMONIALS, VAN_INFO } from './data.js';
+import { COMPANY, DESTINATIONS, TOUR_PACKAGES, WHY_US, TESTIMONIALS, VAN_INFO, GALLERY_PHOTOS } from './data.js';
 
 // ── Theme Manager ──────────────────────────────────────────────
 export const ThemeManager = {
@@ -549,14 +549,7 @@ export function buildGallery() {
   const el = document.getElementById('gallery');
   if (!el) return;
 
-  const PHOTOS = [
-    { src: 'assets/gallery/van-klia.jpg',        caption: 'Large Van — KLIA Transfer',      tag: '🚐 Van' },
-    { src: 'assets/gallery/airport-pickup.jpg',  caption: 'Airport pickup, on time',        tag: '✈️ Airport' },
-    { src: 'assets/gallery/langkawi-tour.jpg',   caption: 'Langkawi Island Tour',           tag: '🌴 Tour' },
-    { src: 'assets/gallery/cameron.jpg',         caption: 'Cameron Highlands Day Trip',     tag: '🏔️ Tour' },
-    { src: 'assets/gallery/customers.jpg',       caption: 'Happy customers, every trip',    tag: '😊 Customers' },
-    { src: 'assets/gallery/small-van.jpg',       caption: 'Small Van — perfect for groups', tag: '🚌 Van' },
-  ];
+const PHOTOS = GALLERY_PHOTOS;
 
   el.innerHTML = `
     <div class="container">
