@@ -1021,3 +1021,64 @@ textarea.form-control { resize: vertical; min-height: 90px; }
     background: var(--brand-blue);
   }
 }
+
+/* ── Why Us Slider (Mobile) ────────────────────────────────── */
+.whyus-wrapper {
+  position: relative;
+}
+
+.whyus-slider {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.whyus-dots {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .whyus-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+  }
+
+  .whyus-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .whyus-slider .why-card {
+    flex: 0 0 85vw;
+    max-width: 85vw;
+    scroll-snap-align: center;
+  }
+
+  .whyus-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.25rem;
+  }
+
+  .w-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s var(--ease);
+  }
+
+  .w-dot.active {
+    width: 28px;
+    background: var(--brand-blue);
+  }
+}
