@@ -472,7 +472,7 @@ export function buildTestimonials() {
         <div class="section-label">💬 Reviews</div>
         <h2 class="section-title">What Our Customers Say</h2>
       </div>
-      <div class="grid-2">
+      <div class="testimonial-slider">
         ${TESTIMONIALS.map(t => `
           <div class="testimonial-card animate-on-scroll">
             <div class="t-stars">${'★'.repeat(t.rating)}</div>
@@ -988,7 +988,7 @@ export function buildFooter() {
           <div class="footer-col-title" style="margin-top:1.5rem">Services</div>
           <div class="footer-links">
             <a href="#services" class="footer-link">✈️ Airport Transfer</a>
-            <a href="#services" class="footer-link">🚐 Interstate Transfer</a>
+            <!-- <a href="#services" class="footer-link">🚐 Interstate Transfer</a> -->
             <a href="#booking" class="footer-link">📋 Book Now</a>
           </div>
         </div>
