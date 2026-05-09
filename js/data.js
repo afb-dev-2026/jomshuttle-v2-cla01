@@ -64,7 +64,7 @@ export const WHY_US = [
   {
     icon: "🛡️",
     title: "Safe & Trusted",
-    desc: "All drivers are licensed, experienced, and background-checked for your peace of mind."
+    desc: "All drivers are licensed and experienced for your peace of mind."
   },
   {
     icon: "🚐",
