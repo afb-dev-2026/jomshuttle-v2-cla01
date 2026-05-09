@@ -768,8 +768,7 @@ async function handleBookingSubmit(e) {
   btn.innerHTML = `<div class="spinner"></div> Sending...`;
   btn.disabled = true;
 
-  try {
-// ── Step 1: Build WhatsApp URL
+  // ── Step 1: Build WhatsApp URL
   const waMsg = buildWhatsAppMessage(data);
   const waUrl = `https://wa.me/${COMPANY.phone.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(waMsg)}`;
 
@@ -784,7 +783,7 @@ async function handleBookingSubmit(e) {
   btn.innerHTML = originalHTML;
   btn.disabled = false;
 
-  // ── Step 4: Send email silently in background — after WhatsApp is already open
+  // ── Step 4: Send email silently in background
   try {
     await sendEmailNotification(data);
   } catch (err) {
