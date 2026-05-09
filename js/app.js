@@ -448,17 +448,44 @@ export function buildWhyUs() {
         <h2 class="section-title">Why Thousands Choose Us</h2>
         <p class="section-subtitle">Your comfort and safety are our top priority — every single trip.</p>
       </div>
-      <div class="grid-3">
-        ${WHY_US.map(w => `
-          <div class="why-card animate-on-scroll">
-            <div class="why-icon">${w.icon}</div>
-            <div class="why-title">${w.title}</div>
-            <div class="why-desc">${w.desc}</div>
-          </div>
-        `).join('')}
+      <div class="whyus-wrapper">
+        <div class="whyus-slider" id="whyusSlider">
+          ${WHY_US.map(w => `
+            <div class="why-card animate-on-scroll">
+              <div class="why-icon">${w.icon}</div>
+              <div class="why-title">${w.title}</div>
+              <div class="why-desc">${w.desc}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="whyus-dots" id="whyusDots">
+          ${WHY_US.map((_, i) => `
+            <button class="w-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Reason ${i + 1}"></button>
+          `).join('')}
+        </div>
       </div>
     </div>
   `;
+
+  // Dot indicator sync — mobile only
+  requestAnimationFrame(() => {
+    const slider = document.getElementById('whyusSlider');
+    const dots = document.querySelectorAll('.w-dot');
+    if (!slider || !dots.length) return;
+
+    slider.addEventListener('scroll', () => {
+      const cardWidth = slider.querySelector('.why-card')?.offsetWidth + 16;
+      const index = Math.round(slider.scrollLeft / cardWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        const cardWidth = slider.querySelector('.why-card')?.offsetWidth + 16;
+        slider.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+      });
+    });
+  });
 }
 
 // ── Testimonials ───────────────────────────────────────────────
