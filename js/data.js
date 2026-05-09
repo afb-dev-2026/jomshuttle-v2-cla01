@@ -529,23 +529,48 @@ export const GALLERY_PHOTOS = [
     tag:     '✈️ Airport',
   },
   {
-    src:     'assets/gallery/3546b0a0-e1db-4677-a24f-444a43c2225c.jpeg',
-    caption: 'Airport transfer van, ',
-    tag:     '🌴 Group Transfer',
+    src:     'assets/gallery/e03ddee7-1802-4fa0-95fd-6a11c445f1eb.jpeg',
+    caption: 'Luggage size reference',
+    tag:     '🧳 Luggage size',
   },
   {
-    src:     'assets/gallery/cameron.jpg',
-    caption: 'Cameron Highlands Day Trip',
+    src:     'assets/gallery/3546b0a0-e1db-4677-a24f-444a43c2225c.jpeg',
+    caption: 'Airport transfer van, ',
+    tag:     '👨‍👩‍👧‍👦 Group Transfer',
+  },
+  {
+    src:     'assets/gallery/IMG_4320.jpeg',
+    caption: 'Hat Yai Trip',
     tag:     '🏔️ Tour',
   },
   {
-    src:     'assets/gallery/customers.jpg',
+    src:     'assets/gallery/IMG_4321.jpeg',
     caption: 'Happy customers, every trip',
     tag:     '😊 Customers',
   },
   {
-    src:     'assets/gallery/small-van.jpg',
-    caption: 'Small Van — perfect for groups',
+    src:     'assets/gallery/68ee5704-70b0-40a3-955a-fdcd11026095.jpeg',
+    caption: 'Small/Large Van — perfect for groups',
     tag:     '🚌 Van',
+  },
+  {
+    src:     'assets/gallery/IMG_4324.jpeg',
+    caption: 'Hat Yai Trip',
+    tag:     '🏔️ Tour',
+  },
+  {
+    src:     'assets/gallery/IMG_4322.jpeg',
+    caption: 'Malacca Trip',
+    tag:     '🏔️ Tour',
+  },
+  {
+    src:     'assets/gallery/IMG_4323.jpeg',
+    caption: 'Malacca Trip',
+    tag:     '🏔️ Tour',
+  },
+  {
+    src:     'assets/gallery/IMG_4325.jpeg',
+    caption: 'Happy customers, every trip',
+    tag:     '😊 Customers',
   },
 ];
