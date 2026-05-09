@@ -529,14 +529,14 @@ export const GALLERY_PHOTOS = [
     tag:     '✈️ Airport',
   },
   {
-    src:     'assets/gallery/e03ddee7-1802-4fa0-95fd-6a11c445f1eb.jpeg',
-    caption: 'Luggage size reference',
-    tag:     '🧳 Luggage size',
-  },
-  {
     src:     'assets/gallery/3546b0a0-e1db-4677-a24f-444a43c2225c.jpeg',
     caption: 'Airport transfer van, ',
     tag:     '👨‍👩‍👧‍👦 Group Transfer',
+  },
+  {
+    src:     'assets/gallery/e03ddee7-1802-4fa0-95fd-6a11c445f1eb.jpeg',
+    caption: 'Luggage size reference',
+    tag:     '🧳 Luggage size',
   },
   {
     src:     'assets/gallery/IMG_4320.jpeg',
