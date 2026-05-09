@@ -6,7 +6,7 @@
  * ============================================================
  */
 
-import { COMPANY, DESTINATIONS, TOUR_PACKAGES, WHY_US, TESTIMONIALS, VAN_INFO } from './data.js';
+import { COMPANY, DESTINATIONS, TOUR_PACKAGES, WHY_US, TESTIMONIALS, VAN_INFO, GALLERY_PHOTOS } from './data.js';
 
 // ── Theme Manager ──────────────────────────────────────────────
 export const ThemeManager = {
@@ -541,6 +541,150 @@ export function buildTestimonials() {
         slider.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
       });
     });
+  });
+}
+
+// ── Gallery Section ────────────────────────────────────────────
+export function buildGallery() {
+  const el = document.getElementById('gallery');
+  if (!el) return;
+
+  const PHOTOS = GALLERY_PHOTOS;
+  const INITIAL_COUNT = 6;
+  let showing = INITIAL_COUNT;
+
+  function renderGrid() {
+    const visible = PHOTOS.slice(0, showing);
+    const hasMore = showing < PHOTOS.length;
+
+    el.querySelector('.gallery-grid').innerHTML = visible.map((p, i) => `
+      <div class="gallery-item ${i === 0 ? 'gallery-item--large' : i === 3 ? 'gallery-item--tall' : ''}"
+           data-index="${i}" role="button" tabindex="0" aria-label="View ${p.caption}">
+        <img src="${p.src}" alt="${p.caption}" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-tag">${p.tag}</span>
+        </div>
+      </div>
+    `).join('');
+
+    const loadMoreBtn = el.querySelector('#galleryLoadMore');
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display = hasMore ? 'inline-flex' : 'none';
+      loadMoreBtn.textContent = `+ Load more (${PHOTOS.length - showing} remaining)`;
+    }
+
+    // Reattach click handlers
+    el.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => openLightbox(+item.dataset.index));
+      item.addEventListener('keydown', e => { if (e.key === 'Enter') openLightbox(+item.dataset.index); });
+    });
+
+    // Mobile slider dots
+    renderDots(visible.length);
+  }
+
+  function renderDots(count) {
+    const dotsEl = el.querySelector('.gallery-dots');
+    if (!dotsEl) return;
+    dotsEl.innerHTML = Array.from({ length: count }, (_, i) =>
+      `<button class="g-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Photo ${i + 1}"></button>`
+    ).join('');
+
+    const slider = el.querySelector('.gallery-grid');
+    dotsEl.querySelectorAll('.g-dot').forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        const cardWidth = slider.querySelector('.gallery-item')?.offsetWidth + 10;
+        slider.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+      });
+    });
+  }
+
+  el.innerHTML = `
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">📸 Our Gallery</div>
+        <h2 class="section-title">See Our Vans & Happy Customers</h2>
+        <p class="section-subtitle">Real trips, real smiles — across Malaysia</p>
+      </div>
+      <div class="gallery-grid"></div>
+      <div class="gallery-dots"></div>
+      <div style="text-align:center;margin-top:1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem;">
+        <button class="btn btn-outline" id="galleryLoadMore" style="display:none;"></button>
+        <a href="#booking" class="btn btn-primary">📋 Book Your Trip Now</a>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+      <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+      <button class="lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
+      <div class="lightbox-content">
+        <img id="lightboxImg" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+      </div>
+    </div>
+  `;
+
+  // Initial render
+  renderGrid();
+
+  // Load more
+  el.querySelector('#galleryLoadMore').addEventListener('click', () => {
+    showing = Math.min(showing + 6, PHOTOS.length);
+    renderGrid();
+  });
+
+  // ── Lightbox logic ──
+  const lightbox = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lightboxImg');
+  const lbCaption = document.getElementById('lightboxCaption');
+  const lbCounter = document.getElementById('lightboxCounter');
+  let current = 0;
+
+  function openLightbox(index) {
+    current = index;
+    updateLightbox();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
+    lbImg.src = PHOTOS[current].src;
+    lbImg.alt = PHOTOS[current].caption;
+    lbCaption.textContent = PHOTOS[current].caption;
+    lbCounter.textContent = `${current + 1} / ${PHOTOS.length}`;
+  }
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', () => {
+    current = (current - 1 + PHOTOS.length) % PHOTOS.length;
+    updateLightbox();
+  });
+  document.getElementById('lightboxNext').addEventListener('click', () => {
+    current = (current + 1) % PHOTOS.length;
+    updateLightbox();
+  });
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') { current = (current - 1 + PHOTOS.length) % PHOTOS.length; updateLightbox(); }
+    if (e.key === 'ArrowRight') { current = (current + 1) % PHOTOS.length; updateLightbox(); }
+  });
+
+  // ── Mobile slider dot sync ──
+  const slider = el.querySelector('.gallery-grid');
+  slider.addEventListener('scroll', () => {
+    const cardWidth = slider.querySelector('.gallery-item')?.offsetWidth + 10;
+    const index = Math.round(slider.scrollLeft / cardWidth);
+    el.querySelectorAll('.g-dot').forEach((d, i) => d.classList.toggle('active', i === index));
   });
 }
 

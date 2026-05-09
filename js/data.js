@@ -64,7 +64,7 @@ export const WHY_US = [
   {
     icon: "🛡️",
     title: "Safe & Trusted",
-    desc: "All drivers are licensed, experienced, and background-checked for your peace of mind."
+    desc: "All drivers are licensed and experienced for your peace of mind."
   },
   {
     icon: "🚐",
@@ -498,7 +498,7 @@ export const TESTIMONIALS = [
   {
     name: "Raj Kumar",
     location: "Penang",
-    text: "Needed a last-minute airport transfer. WhatsApp reply came in under 3 minutes. Smooth ride to KLIA2. Great service at a fair price.",
+    text: "Needed a last-minute airport transfer. WhatsApp reply came in very fast. Smooth ride to KLIA2. Great service at a fair price.",
     rating: 5,
     avatar: "RK"
   },
@@ -509,4 +509,68 @@ export const TESTIMONIALS = [
     rating: 5,
     avatar: "NH"
   }
+];
+
+// ── Gallery Photos ─────────────────────────────────────────────
+// To add/remove photos: just edit this array.
+// Fields:
+//   src     — path to image file (put photos in assets/gallery/)
+//   caption — shown in lightbox below the photo
+//   tag     — small label shown on hover (keep short)
+export const GALLERY_PHOTOS = [
+  {
+    src:     'assets/gallery/08b8d0ef-1ad1-450b-a4cd-55995479f5ed.jpeg',
+    caption: 'Large Van — KLIA Transfer',
+    tag:     '🚐 Van',
+  },
+  {
+    src:     'assets/gallery/1314a6e8-d8bd-4c58-9d4e-6bca4043bc67.jpeg',
+    caption: 'Airport pickup, on time',
+    tag:     '✈️ Airport',
+  },
+  {
+    src:     'assets/gallery/3546b0a0-e1db-4677-a24f-444a43c2225c.jpeg',
+    caption: 'Airport transfer van, ',
+    tag:     '👨‍👩‍👧‍👦 Group Transfer',
+  },
+  {
+    src:     'assets/gallery/e03ddee7-1802-4fa0-95fd-6a11c445f1eb.jpeg',
+    caption: 'Luggage size reference',
+    tag:     '🧳 Luggage size',
+  },
+  {
+    src:     'assets/gallery/IMG_4320.jpeg',
+    caption: 'Hat Yai Trip',
+    tag:     '🏔️ Tour',
+  },
+  {
+    src:     'assets/gallery/IMG_4321.jpeg',
+    caption: 'Happy customers, every trip',
+    tag:     '😊 Customers',
+  },
+  {
+    src:     'assets/gallery/68ee5704-70b0-40a3-955a-fdcd11026095.jpeg',
+    caption: 'Small/Large Van — perfect for groups',
+    tag:     '🚌 Van',
+  },
+  {
+    src:     'assets/gallery/IMG_4324.jpeg',
+    caption: 'Hat Yai Trip',
+    tag:     '🏔️ Tour',
+  },
+  {
+    src:     'assets/gallery/IMG_4322.jpeg',
+    caption: 'Malacca Trip',
+    tag:     '🏔️ Tour',
+  },
+  {
+    src:     'assets/gallery/IMG_4323.jpeg',
+    caption: 'Malacca Trip',
+    tag:     '🏔️ Tour',
+  },
+  {
+    src:     'assets/gallery/IMG_4325.jpeg',
+    caption: 'Happy customers, every trip',
+    tag:     '😊 Customers',
+  },
 ];
