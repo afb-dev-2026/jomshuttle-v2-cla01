@@ -558,9 +558,9 @@ export function buildGallery() {
     const hasMore = showing < PHOTOS.length;
 
     el.querySelector('.gallery-grid').innerHTML = visible.map((p, i) => `
-      <div class="gallery-item ${i === 0 ? 'gallery-item--large' : i === 3 ? 'gallery-item--tall' : ''}"
-           data-index="${i}" role="button" tabindex="0" aria-label="View ${p.caption}">
-        <img src="${p.src}" alt="${p.caption}" loading="lazy">
+  <div class="gallery-item"
+       data-index="${i}" role="button" tabindex="0" aria-label="View ${p.caption}">
+     <img src="${p.src}" alt="${p.caption}" loading="lazy">
         <div class="gallery-overlay">
           <span class="gallery-tag">${p.tag}</span>
         </div>
